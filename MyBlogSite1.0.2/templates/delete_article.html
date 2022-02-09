@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block context %}
+<div class="container">
+<form method="post">
+    {% csrf_token %}
+    <h2>Maqolani o'chirish</h2>
+    <p style="font-size:30px; color:red">Xaqiqatdan ham o'chirmoqchimisiz? {{ task.title }}</p>
+    <button class="btn btn-danger">Ha</button> | <a href="{% url 'articles' %}" class="btn btn-success">Yo'q</a>
+</form>
+    </div>
+{% endblock context %}

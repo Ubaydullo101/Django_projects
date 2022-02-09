@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block context %}
+<div class="container">
+    <h2 style="text-align: center;color: #4ac1f7;font-size: 30px;text-transform:capitalize">{{ title.title }}</h2>
+<div class="row">
+  <div class="col-8 card" style="padding: 5px; margin-bottom: 20px">
+    <img src="{{ article.photo_url |default_if_none:'#' }}" class="card-img-top" height="300px" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ article.title }}</h5>
+      <div style="margin-bottom:30px; margin-top:20px"><a href="{% url 'edit_article' article.id %}" style="font-size:25px; color:green">Taxrirlash</a> | <a href="{% url 'delete' article.id %}" style="font-size:25px; color:red">O'chirish</a></div>
+        <p class="card-text">{{ article.content }}</p>
+        <p class="card-text"><small class="text-muted">crated:{{ article.created_date }}</small></p>
+        <p class="card-text"><small class="text-muted">Ko'rilgan:  {{ article.views_count }} marta</small></p>
+    </div>
+  </div>
+</div>
+    </div>
+{% endblock context %}
